@@ -12,7 +12,7 @@ class TruSuggest{
 
         return axios({
             method:'post',
-            url:'http://localhost:3000/dev/index/upload',
+            url:'https://api.trusuggest.com/dev/index/upload',
             data:options
         }).then((response)=>{
             if (response.status == 200) {
@@ -50,7 +50,7 @@ class TruSuggest{
 
         return axios({
             method:'post',
-            url:'http://localhost:3000/dev/index/bulk-upload',
+            url:'https://api.trusuggest.com/dev/index/bulk-upload',
             data:options
         }).then((response)=>{
             const size = response.data.data.size
