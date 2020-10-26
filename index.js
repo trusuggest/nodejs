@@ -1,5 +1,5 @@
 'use strict'
-import * as axios from 'axios';
+const axios = require('axios');
 
 class TruSuggest{
 
@@ -90,4 +90,4 @@ class TruSuggest{
 
 }
 
-export default TruSuggest;
+module.exports = TruSuggest;
