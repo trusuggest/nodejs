@@ -23,11 +23,13 @@ class TruSuggest{
                 }
 			}
         }).catch((err)=>{
-            let error = err.response;
-            if (error.status == 400) {
+            let errorStatus = err.response && err.response.status || 400;
+            let errorMsg = err.response && err.response.statusText || 'Some thing went wrong'
+            console.log(err);
+            if (errorStatus == 400) {
                 return {
                     success: false,
-					message: error.statusText
+					message: errorMsg
                 }
 			} else {
 				return {
@@ -35,7 +37,7 @@ class TruSuggest{
 					message: 'SendEvent : Oops Something went wrong!!',
 					// data : JSON.stringify(response.data),
 					// response : JSON.stringify(err.message),
-                    error : JSON.stringify(error.statusText)
+                    error : JSON.stringify(errorMsg)
                 }
 			}
         });
@@ -70,11 +72,13 @@ class TruSuggest{
                 }
 			}
         }).catch((err)=>{
-            let error = err.response;
-            if (error.status == 400) {
+            let errorStatus = err.response && err.response.status || 400;
+            let errorMsg = err.response && err.response.statusText || 'Some thing went wrong'
+            console.log(err);
+            if (errorStatus == 400) {
                 return {
                     success: false,
-					message: error.statusText
+					message: errorMsg
                 }
 			} else {
 				return {
@@ -82,7 +86,7 @@ class TruSuggest{
 					message: 'SendEvent : Oops Something went wrong!!',
 					// data : JSON.stringify(response.data),
 					// response : JSON.stringify(err.message),
-                    error : JSON.stringify(error.statusText)
+                    error : JSON.stringify(errorMsg)
                 }
 			}
         });
