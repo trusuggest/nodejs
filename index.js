@@ -6,14 +6,16 @@ class TruSuggest{
     static upload( accessToken, indexName, dataBinding){
         const options = {
             uploadData:dataBinding.uploadData,
-            indexName,
-            accessToken,
+            indexName
         }
 
         return axios({
             method:'post',
             url:'https://api.trusuggest.com/dev/index/upload',
-            data:options
+            data:options,
+            headers:{
+                'Authorization': `Bearer ${accessToken}`
+            }
         }).then((response)=>{
             if (response.status == 200) {
                 return {
@@ -46,14 +48,16 @@ class TruSuggest{
     static bulkUpload( accessToken, indexName, dataBinding){
         const options = {
             uploadData:dataBinding.uploadData,
-            accessToken,
             indexName
         }
 
         return axios({
             method:'post',
             url:'https://api.trusuggest.com/dev/index/bulk-upload',
-            data:options
+            data:options,
+            headers:{
+                'Authorization': `Bearer ${accessToken}`
+            }
         }).then((response)=>{
             const size = response.data.data.size
             if (response.status == 200) {
