@@ -21,7 +21,6 @@ class TruSuggest{
                 return {
                     success: true,
                     message: 'Successfully added Document!',
-                    objectId: response.data.data.objectId
                 }
 			}
         }).catch((err)=>{
@@ -71,7 +70,6 @@ class TruSuggest{
                     return {
                         success: true,
                         message: response.data.message,
-                        objectIds: response.data.data.objectIds
                     }
                 }
 			}
