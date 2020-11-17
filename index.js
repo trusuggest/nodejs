@@ -58,13 +58,13 @@ class TruSuggest{
                 'Authorization': `Bearer ${accessToken}`
             }
         }).then((response)=>{
-            const size = response.data.data.size
+            const size = (response && response.data && response.data.data && response.data.data.size)||50;
             if (response.status == 200) {
                 if( size > 50){
                     return {
                         success: true,
                         message: response.data.message,
-                        size:response.data.data.size
+                        size
                     }
                 } else{
                     return {
